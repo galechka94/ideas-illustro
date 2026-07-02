@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Ideas Illustro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logoshort.png" />
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="logoshort.png" alt="Ideas Illustro Logo" />
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="transaksi.html">Transaksi</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="login.html" class="btn-nav-login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== KONTEN Login ==================== -->
+  <main style="padding-top: 0; padding-bottom: 0;">
+    <div class="login-wrap">
+      <div class="login-card">
+
+        <!-- Logo kecil di form -->
+        <div style="text-align:center; margin-bottom:20px;">
+          <img src="logomain.png" alt="Ideas Illustro" style="margin: 0 auto;" />
+        </div>
+
+        <h2>Selamat Datang, Ideator!</h2>
+        <p class="sub">Login untuk mulai memesan atau melanjutkan pesananmu.</p>
+
+        <!-- Alert -->
+        <div class="alert alert-sukses" id="alertSukses"></div>
+        <div class="alert alert-error"  id="alertError"></div>
+
+        <!-- ===== FORM LOGIN ===== -->
+        <form id="formLogin" onsubmit="validasiLogin(event)" novalidate>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="loginEmail">Email <span style="color:var(--error)">*</span></label>
+            <input
+              type="email"
+              id="loginEmail"
+              name="loginEmail"
+              placeholder="email@kamu.com"
+            />
+            <span class="error-msg" id="err-loginEmail"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="loginPass">Password <span style="color:var(--error)">*</span></label>
+            <input
+              type="password"
+              id="loginPass"
+              name="loginPass"
+              placeholder="Masukkan password"
+            />
+            <span class="error-msg" id="err-loginPass"></span>
+          </div>
+
+          <!-- Lupa password -->
+          <div style="text-align:right; margin-top:-10px; margin-bottom:20px;">
+            <a href="#" style="font-size:13px; color:var(--purple); font-weight:700;">Lupa password?</a>
+          </div>
+
+          <!-- Tombol Login -->
+          <button type="submit" class="btn btn-primary btn-block">
+            Masuk ke Akun
+          </button>
+
+        </form>
+        <!-- ===== END FORM LOGIN ===== -->
+
+        <div class="login-divider">atau</div>
+
+        <!-- Daftar -->
+        <a href="#" class="btn btn-outline btn-block" style="display:block; text-align:center;">
+          Daftar Akun Baru
+        </a>
+
+        <p class="login-switch">
+          Dengan login, kamu menyetujui
+          <a href="#">Syarat &amp; Ketentuan</a> kami.
+        </p>
+
+      </div>
+    </div>
+  </main>
+  <!-- ==================== END MAIN ==================== -->
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>© 2026 <span>Ideas Illustro</span> · Turning your Vision into Visuals </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

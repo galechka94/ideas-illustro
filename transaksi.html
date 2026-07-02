@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transaksi – Ideas Illustro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logoshort.png" />
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="LogoShort.png" alt="Ideas Illustro Logo" />
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="transaksi.html">Transaksi</a></li>
+          <li><a href="katalog.html">Katalog</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="login.html" class="btn-nav-login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ==================== END HEADER ==================== -->
+
+
+  <!-- ==================== KONTEN UTAMA ==================== -->
+  <main>
+
+    <!-- Judul Halaman -->
+    <span class="section-tag">💳 Kelola Pesanan</span>
+    <h1 class="page-title">Halaman Transaksi</h1>
+    <p class="page-subtitle">Isi formulir di bawah untuk mencatat pesanan komisi baru.</p>
+
+    <!-- ===== FORM TRANSAKSI ===== -->
+    <div class="card" style="max-width: 680px; margin-bottom: 48px;">
+      <h2 style="font-size:20px; font-weight:900; margin-bottom:22px;">📋 Form Transaksi Baru</h2>
+
+      <!-- Alert Notifikasi -->
+      <div class="alert alert-sukses" id="alertSukses"></div>
+      <div class="alert alert-error"  id="alertError"></div>
+
+      <form id="formTransaksi" onsubmit="simpanTransaksi(event)" novalidate>
+
+        <!-- Nama Pemesan -->
+        <div class="form-group">
+          <label for="namaPemesan">Nama Pemesan <span style="color:var(--error)">*</span></label>
+          <input
+            type="text"
+            id="namaPemesan"
+            name="namaPemesan"
+            placeholder="Contoh: Rina Kusuma"
+          />
+          <span class="error-msg" id="err-namaPemesan"></span>
+        </div>
+
+        <!-- Paket Komisi -->
+        <div class="form-group">
+          <label for="paketKomisi">Paket Komisi <span style="color:var(--error)">*</span></label>
+          <select id="paketKomisi" name="paketKomisi">
+           <option value="75000">HeadShot - Rp75.000</option>
+            <option value="100000">Half Body - Rp100.000</option>
+            <option value="200000">Full Body - Rp200.000</option>
+            <option value="90000">Chibi - Rp90.000</option>
+          </select>
+          <span class="error-msg" id="err-paketKomisi"></span>
+        </div>
+
+        <!-- Total Harga -->
+        <div class="form-group">
+          <label for="totalHarga">Total Harga (Rp) <span style="color:var(--error)">*</span></label>
+          <input
+            type="number"
+            id="totalHarga"
+            name="totalHarga"
+            placeholder="Contoh: 75000"
+            min="1"
+          />
+          <span class="error-msg" id="err-totalHarga"></span>
+        </div>
+
+        <!-- Status Pembayaran -->
+        <div class="form-group">
+          <label for="statusBayar">Status Pembayaran <span style="color:var(--error)">*</span></label>
+          <select id="statusBayar" name="statusBayar">
+            <option value="">-- Pilih Status --</option>
+            <option value="DP 50%">DP 50%</option>
+            <option value="Lunas">Lunas</option>
+          </select>
+          <span class="error-msg" id="err-statusBayar"></span>
+        </div>
+
+        <!-- Tanggal -->
+        <div class="form-group">
+          <label for="tanggal">Tanggal Transaksi <span style="color:var(--error)">*</span></label>
+          <input
+            type="date"
+            id="tanggal"
+            name="tanggal"
+          />
+          <span class="error-msg" id="err-tanggal"></span>
+        </div>
+
+        <!-- Catatan Tambahan (opsional) -->
+        <div class="form-group">
+          <label for="catatan">Catatan Tambahan <span style="color:var(--gray); font-weight:600">(opsional)</span></label>
+          <textarea
+            id="catatan"
+            name="catatan"
+            rows="3"
+            placeholder="Contoh: Karakter berambut ungu, gaya fantasi medieval..."
+          ></textarea>
+        </div>
+
+        <!-- Tombol Simpan -->
+        <button type="submit" class="btn btn-primary btn-block">
+           Simpan Pemesanan
+        </button>
+
+      </form>
+    </div>
+    <!-- ===== END FORM ===== -->
+
+
+    <!-- ===== DAFTAR TRANSAKSI ===== -->
+    <section id="sectionDaftar">
+      <h2 style="font-size:22px; font-weight:900; margin-bottom:6px;">📊 Daftar Transaksi</h2>
+      <p style="color:var(--gray); font-size:14px; margin-bottom:20px;">
+        Semua transaksi yang telah dicatat ditampilkan di bawah ini.
+        <!-- Link ke daftar transaksi (anchor) -->
+        <a href="#sectionDaftar" style="color:var(--purple); font-weight:800;">↓ Lihat Daftar</a>
+      </p>
+
+      <div class="tabel-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Transaksi</th>
+              <th>Paket / Kategori</th>
+              <th>Jumlah (Harga)</th>
+              <th>Status Bayar</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="bodyTransaksi">
+            <!-- Diisi oleh JavaScript -->
+          </tbody>
+          <!-- Baris kosong jika tidak ada data -->
+          <tr id="kosongTabel" style="display:none;">
+            <td colspan="7" class="kosong-tabel">
+              Belum ada transaksi. Isi formulir di atas untuk menambahkan!
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <!-- ===== END DAFTAR ===== -->
+
+  </main>
+  <!-- ==================== END MAIN ==================== -->
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+   <p>© 2026 <span>Ideas Illustro</span> · Turning your Vision into Visuals </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

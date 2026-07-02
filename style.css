@@ -1,0 +1,622 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* --- VARIABEL WARNA --- */
+:root {
+  --cream:        #F2ECE4;
+  --purple:       #7B5EA7;
+  --purple-light: #B89DD4;
+  --purple-dark:  #2B2961;
+  --lime:         #C5D85A;
+  --pink:         #F5B8CB;
+  --coral:        #E87560;
+  --white:        #ffffff;
+  --gray:         #6b7280;
+  --gray-light:   #f3f4f6;
+  --border:       #e5e7eb;
+  --success:      #16a34a;
+  --error:        #dc2626;
+}
+
+/* --- RESET & BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', Arial, sans-serif;
+  background-color: var(--cream);
+  color: var(--purple-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* =============================================
+   HEADER & NAVIGASI
+   ============================================= */
+header {
+  background-color: var(--white);
+  border-bottom: 2px solid rgba(123, 94, 167, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(43, 41, 97, 0.06);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link img {
+  height: 75px;
+  width: auto;
+}
+
+/* Navigasi */
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple-dark);
+  transition: background 0.2s, color 0.2s;
+}
+
+nav ul li a:hover {
+  background-color: var(--purple-dark);
+  color: var(--cream);
+}
+
+nav ul li a.aktif {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+/* Tombol login di nav */
+nav ul li a.btn-nav-login {
+  background-color: var(--purple);
+  color: var(--white);
+  border: 2px solid var(--purple);
+}
+
+nav ul li a.btn-nav-login:hover {
+  background-color: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--purple-dark);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  background-color: var(--purple-dark);
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  padding: 20px 24px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+footer span { color: var(--pink); }
+
+/* =============================================
+   KOMPONEN UMUM
+   ============================================= */
+
+.section-tag {
+  display: inline-block;
+  background: var(--pink);
+  color: var(--purple-dark);
+  padding: 4px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* Judul halaman */
+.page-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--purple-dark);
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  font-size: 15px;
+  color: var(--gray);
+  margin-bottom: 36px;
+}
+
+/* Kartu / card */
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(123, 94, 167, 0.08);
+}
+
+/* Tombol */
+.btn {
+  display: inline-block;
+  padding: 11px 28px;
+  border-radius: 50px;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--purple);
+  color: var(--white);
+  border-color: var(--purple);
+}
+
+.btn-primary:hover {
+  background-color: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.btn-outline:hover {
+  background-color: var(--purple-dark);
+  color: var(--white);
+}
+
+.btn-block {
+  width: 100%;
+  text-align: center;
+  padding: 13px;
+  font-size: 15px;
+}
+
+.btn-danger {
+  background-color: var(--coral);
+  color: var(--white);
+  border-color: var(--coral);
+}
+
+/* =============================================
+   FORM
+   ============================================= */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--purple-dark);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 14px;
+  color: var(--purple-dark);
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--purple);
+  background: var(--white);
+}
+
+.form-group input.input-error,
+.form-group select.input-error,
+.form-group textarea.input-error {
+  border-color: var(--error);
+  background: #fff5f5;
+}
+
+.error-msg {
+  display: none;
+  font-size: 12px;
+  color: var(--error);
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.error-msg.tampil {
+  display: block;
+}
+
+/* Alert / Notifikasi */
+.alert {
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.alert.tampil { display: block; }
+.alert-sukses { background: #dcfce7; color: #14532d; border: 1px solid #86efac; }
+.alert-error  { background: #fee2e2; color: #7f1d1d; border: 1px solid #fca5a5; }
+
+/* =============================================
+   TABEL
+   ============================================= */
+.tabel-wrapper {
+  overflow-x: auto;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(123, 94, 167, 0.07);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 14px;
+}
+
+table thead tr {
+  background: var(--purple);
+  color: var(--white);
+}
+
+table thead th {
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+table thead th:first-child { border-radius: 16px 0 0 0; }
+table thead th:last-child  { border-radius: 0 16px 0 0; }
+
+table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+table tbody tr:hover { background: var(--gray-light); }
+
+table tbody td {
+  padding: 13px 18px;
+  vertical-align: middle;
+}
+
+table tbody tr:last-child td:first-child { border-radius: 0 0 0 16px; }
+table tbody tr:last-child td:last-child  { border-radius: 0 0 16px 0; }
+
+.kosong-tabel {
+  text-align: center;
+  color: var(--gray);
+  padding: 36px;
+  font-size: 15px;
+}
+
+/* Badge status */
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.badge-dp     { background: #fef9c3; color: #713f12; }
+.badge-lunas  { background: #dcfce7; color: #14532d; }
+.badge-hapus  { background: none; border: none; cursor: pointer; color: var(--coral); font-weight: 800; font-size: 13px; }
+
+/* =============================================
+   HALAMAN BERANDA – Langkah
+   ============================================= */
+.hero-beranda {
+  text-align: center;
+  padding: 20px 0 48px;
+}
+
+.hero-beranda img {
+  margin: 0 auto;
+  height: 450px;
+  width: auto;
+}
+
+.hero-beranda p {
+  font-size: 17px;
+  color: var(--gray);
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+/* Langkah-langkah */
+.langkah-judul {
+  font-size: 26px;
+  font-weight: 900;
+  text-align: center;
+  margin: 56px 0 32px;
+}
+
+.langkah-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.langkah-item {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 3px 18px rgba(123, 94, 167, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.langkah-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(123, 94, 167, 0.15);
+}
+
+.langkah-nomor {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.langkah-item h3 {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.langkah-item p {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.langkah-icon { font-size: 30px; margin-bottom: 10px; }
+
+/* =============================================
+   HALAMAN PROFIL
+   ============================================= */
+.profil-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.profil-image {
+  width: 200px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.profil-fitur {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.fitur-item {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.fitur-icon { font-size: 24px; flex-shrink: 0; }
+.fitur-item h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.fitur-item p  { font-size: 12px; color: var(--gray); }
+
+/* =============================================
+   HALAMAN LOGIN
+   ============================================= */
+.login-wrap {
+  min-height: calc(100vh - 68px - 61px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 8px 40px rgba(123, 94, 167, 0.12);
+}
+
+.login-card h2 {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.login-card .sub {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 30px;
+}
+
+.login-divider {
+  text-align: center;
+  margin: 16px 0;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.login-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--gray);
+}
+
+.login-switch a {
+  color: var(--purple);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+  .profil-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-beranda h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hamburger { display: flex; }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 12px 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+
+  nav.buka { display: block; }
+
+  nav ul {
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 20px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px 18px;
+    border-radius: 12px;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+
+  main {
+    padding: 28px 16px;
+  }
+
+  .hero-beranda h1 {
+    font-size: 28px;
+  }
+
+  .langkah-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .login-card {
+    padding: 32px 22px;
+  }
+
+  table thead th,
+  table tbody td {
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  .page-title { font-size: 24px; }
+}
+
+@media (max-width: 400px) {
+  .hero-btns { flex-direction: column; align-items: center; }
+  .hero-beranda h1 { font-size: 24px; }
+}
